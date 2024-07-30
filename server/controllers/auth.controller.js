@@ -38,7 +38,7 @@ export const login = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, userFound.password)
 
-    if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' })
+    if (!isMatch) return res.status(401).json({ message: 'Invalid credential' })
 
     const token = await createAccessToken({ id: userFound.id })
 
